@@ -6,16 +6,17 @@ import { gridItems } from '@/data'
 const Grid = () => {
 
   useEffect(() => {
-    document.body.style.overflow = "auto";
+    document.body.style.overflowX = "hidden";
+    document.body.style.overflowY = "auto";
     document.body.style.pointerEvents = "auto";
-  },[])
+  }, [])
   return (
     <section id='about'>
       <BentoGrid >
         {gridItems.map(({
-          id,title,description,className,img,imgClassName,titleClassName,spareImg
-        })=>(
-          <BentoGridItem 
+          id, title, description, className, img, imgClassName, titleClassName, spareImg
+        }) => (
+          <BentoGridItem
             id={id}
             key={id}
             title={title}
@@ -23,8 +24,8 @@ const Grid = () => {
             className={className}
             img={img}
             imgClassName={imgClassName}
-            titleClassName ={titleClassName}
-            spareImg ={spareImg}
+            titleClassName={titleClassName}
+            spareImg={spareImg}
           />
         ))}
       </BentoGrid>
