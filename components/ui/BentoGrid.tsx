@@ -114,9 +114,8 @@ export const BentoGridItem = ({
           )}
         </div>
         <div
-          className={`absolute right-0 -bottom-5 ${
-            id === 5 && "w-full opacity-80"
-          } `}
+          className={`absolute right-0 -bottom-5 ${id === 5 && "w-full opacity-80"
+            } `}
         >
           {spareImg && (
             <img
@@ -142,13 +141,13 @@ export const BentoGridItem = ({
             "group-hover/bento:translate-x-2 transition duration-200 flex flex-col md:h-full min-h-40 p-5 lg:p-10 h-full",
           )}
         >
-          <div className="font-sans font-extralight text-[#c1c2d3] text-sm lg:text-base z-10 md:text-xs">
+          <div className="font-sans font-light text-[#BEC1DD] text-sm lg:text-base z-10 md:text-xs leading-relaxed">
             {description}
           </div>
           <div
             tabIndex={1}
             role="dialog"
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10`}
+            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 text-white`}
           >
             {title}
           </div>

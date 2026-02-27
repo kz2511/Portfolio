@@ -43,8 +43,8 @@ export const navItems = [
 export const gridItems = [
   {
     id: 1,
-    title: "I prioritize strong collaboration and clear communication with every team I work with",
-    description: "",
+    title: "I'm Kunal — I turn messy, real-world data into AI systems that actually work in production",
+    description: "Over 5+ years, I've gone from writing my first Python script to leading teams that ship LLM-powered applications, RAG pipelines, and data platforms used by thousands. I don't just build models — I own the full stack, from data ingestion to deployment.",
     className: "lg:col-span-3 md:col-span-6 md:row-span-4 lg:min-h-[550px] min-h-80",
     imgClassName: "w-full h-full",
     titleClassName: "justify-end",
@@ -53,8 +53,8 @@ export const gridItems = [
   },
   {
     id: 2,
-    title: "I'm flexible working across time zones with distributed teams",
-    description: "",
+    title: "Based in India, building for the world",
+    description: "I've shipped AI solutions for startups and enterprises across the US, Europe, and Asia — fully async, zero timezone friction.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-2",
     imgClassName: "",
     titleClassName: "justify-start",
@@ -73,8 +73,8 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "AI enthusiast with a passion for building intelligent, scalable systems.",
-    description: "",
+    title: "I don't just write code — I architect systems designed to scale from day one",
+    description: "Whether it's a Medallion-architecture data lake or a vector-search-powered chatbot, I think in systems, not scripts.",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
     titleClassName: "justify-start",
@@ -83,7 +83,7 @@ export const gridItems = [
   },
   {
     id: 5,
-    title: "Building end-to-end AI systems — from RAG pipelines to production deployments",
+    title: "From fine-tuning LLMs & building RAG pipelines to deploying on AWS with Docker — I handle the entire AI lifecycle",
     description: "The Inside Scoop",
     className: "md:col-span-3 md:row-span-2",
     imgClassName: "absolute right-0 bottom-0 md:w-96 w-60",
@@ -93,7 +93,7 @@ export const gridItems = [
   },
   {
     id: 6,
-    title: "Do you want to start a project together?",
+    title: "Got a challenge that needs AI? Let's build it together.",
     description: "",
     className: "lg:col-span-2 md:col-span-3 md:row-span-1",
     imgClassName: "",
@@ -265,35 +265,35 @@ export const approach = [
 
 export const skills = [
   // AI / ML
-  { Icon: FaPython,         name: 'Python',          prog: 97, category: 'AI & ML',          color: '#306998' },
-  { Icon: SiTensorflow,     name: 'TensorFlow',      prog: 88, category: 'AI & ML',          color: '#ff6f00' },
-  { Icon: SiPytorch,        name: 'PyTorch',          prog: 85, category: 'AI & ML',          color: '#ee4c2c' },
-  { Icon: SiOpenai,         name: 'OpenAI / LLMs',   prog: 92, category: 'AI & ML',          color: '#74aa9c' },
-  { Icon: SiHuggingface,    name: 'Hugging Face',    prog: 85, category: 'AI & ML',          color: '#ffd21e' },
-  { Icon: SiLangchain,      name: 'LangChain',       prog: 88, category: 'AI & ML',          color: '#1c3c3c' },
-  { Icon: SiScikitlearn,    name: 'Scikit-learn',    prog: 85, category: 'AI & ML',          color: '#f89939' },
-  { Icon: SiPandas,         name: 'Pandas',          prog: 90, category: 'AI & ML',          color: '#150458' },
-  { Icon: SiNumpy,          name: 'NumPy',           prog: 90, category: 'AI & ML',          color: '#4dabcf' },
-  { Icon: SiJupyter,        name: 'Jupyter',         prog: 90, category: 'AI & ML',          color: '#f37626' },
+  { Icon: FaPython, name: 'Python', prog: 97, category: 'AI & ML', color: '#306998' },
+  { Icon: SiTensorflow, name: 'TensorFlow', prog: 88, category: 'AI & ML', color: '#ff6f00' },
+  { Icon: SiPytorch, name: 'PyTorch', prog: 85, category: 'AI & ML', color: '#ee4c2c' },
+  { Icon: SiOpenai, name: 'OpenAI / LLMs', prog: 92, category: 'AI & ML', color: '#74aa9c' },
+  { Icon: SiHuggingface, name: 'Hugging Face', prog: 85, category: 'AI & ML', color: '#ffd21e' },
+  { Icon: SiLangchain, name: 'LangChain', prog: 88, category: 'AI & ML', color: '#1c3c3c' },
+  { Icon: SiScikitlearn, name: 'Scikit-learn', prog: 85, category: 'AI & ML', color: '#f89939' },
+  { Icon: SiPandas, name: 'Pandas', prog: 90, category: 'AI & ML', color: '#150458' },
+  { Icon: SiNumpy, name: 'NumPy', prog: 90, category: 'AI & ML', color: '#4dabcf' },
+  { Icon: SiJupyter, name: 'Jupyter', prog: 90, category: 'AI & ML', color: '#f37626' },
 
   // Backend & Frameworks
-  { Icon: SiFastapi,        name: 'FastAPI',          prog: 90, category: 'Backend',          color: '#009688' },
-  { Icon: SiDjango,         name: 'Django / DRF',    prog: 92, category: 'Backend',          color: '#44b78b' },
-  { Icon: SiFlask,          name: 'Flask',           prog: 88, category: 'Backend',          color: '#ffffff' },
+  { Icon: SiFastapi, name: 'FastAPI', prog: 90, category: 'Backend', color: '#009688' },
+  { Icon: SiDjango, name: 'Django / DRF', prog: 92, category: 'Backend', color: '#44b78b' },
+  { Icon: SiFlask, name: 'Flask', prog: 88, category: 'Backend', color: '#ffffff' },
 
   // Data Engineering
-  { Icon: SiApachespark,    name: 'Apache Spark',    prog: 85, category: 'Data Engineering', color: '#e25a1c' },
-  { Icon: SiApachehadoop,   name: 'Hadoop',          prog: 78, category: 'Data Engineering', color: '#fae234' },
-  { Icon: SiApachekafka,    name: 'Kafka',           prog: 80, category: 'Data Engineering', color: '#ffffff' },
-  { Icon: SiElasticsearch,  name: 'Elasticsearch',   prog: 82, category: 'Data Engineering', color: '#fed10a' },
-  { Icon: SiPostgresql,     name: 'PostgreSQL',      prog: 88, category: 'Data Engineering', color: '#336791' },
-  { Icon: SiMongodb,        name: 'MongoDB',         prog: 80, category: 'Data Engineering', color: '#4db33d' },
-  { Icon: SiRedis,          name: 'Redis',           prog: 78, category: 'Data Engineering', color: '#dc382d' },
+  { Icon: SiApachespark, name: 'Apache Spark', prog: 85, category: 'Data Engineering', color: '#e25a1c' },
+  { Icon: SiApachehadoop, name: 'Hadoop', prog: 78, category: 'Data Engineering', color: '#fae234' },
+  { Icon: SiApachekafka, name: 'Kafka', prog: 80, category: 'Data Engineering', color: '#ffffff' },
+  { Icon: SiElasticsearch, name: 'Elasticsearch', prog: 82, category: 'Data Engineering', color: '#fed10a' },
+  { Icon: SiPostgresql, name: 'PostgreSQL', prog: 88, category: 'Data Engineering', color: '#336791' },
+  { Icon: SiMongodb, name: 'MongoDB', prog: 80, category: 'Data Engineering', color: '#4db33d' },
+  { Icon: SiRedis, name: 'Redis', prog: 78, category: 'Data Engineering', color: '#dc382d' },
 
   // Scraping & Automation
-  { Icon: SiScrapy,         name: 'Scrapy',          prog: 90, category: 'Scraping & Tools', color: '#60a839' },
-  { Icon: SiCelery,         name: 'Celery',          prog: 82, category: 'Scraping & Tools', color: '#a9cc54' },
+  { Icon: SiScrapy, name: 'Scrapy', prog: 90, category: 'Scraping & Tools', color: '#60a839' },
+  { Icon: SiCelery, name: 'Celery', prog: 82, category: 'Scraping & Tools', color: '#a9cc54' },
 
   // Cloud & DevOps
-  { Icon: FaGitAlt,         name: 'Git',             prog: 92, category: 'Cloud & DevOps',   color: '#f05032' },
+  { Icon: FaGitAlt, name: 'Git', prog: 92, category: 'Cloud & DevOps', color: '#f05032' },
 ];
