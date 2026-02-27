@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 import Head from "next/head";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kunalzaveri.dev"),
@@ -66,7 +60,7 @@ export default function RootLayout({
       </Head>
       <body
         suppressHydrationWarning
-        className={`${inter.variable} antialiased`}
+        className="antialiased"
       >
         <ThemeProvider
           attribute="class"
