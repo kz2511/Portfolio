@@ -158,6 +158,33 @@ export const projects = [
     iconLists: ["/python.svg"],
     techStack: "Scrapy · Selenium · Flask · Python · BeautifulSoup",
   },
+  {
+    id: 7,
+    title: "🏢 Enterprise Multi-Tenant AI SaaS Platform",
+    des: "Production-grade, multi-tenant SaaS platform serving 50+ enterprise clients — enabling each tenant to fine-tune, deploy, and monitor their own private LLM-powered assistants with strict data isolation and governance.",
+    detail: "Built multi-tenant architecture with Row-Level Security in PostgreSQL and per-tenant vector namespaces in Pinecone. Implemented fine-tuning pipelines for OpenAI & Llama 2 using LoRA adapters. Designed async task queuing via Celery + Redis. Enforced RBAC, SOC 2-compliant audit logs, rate limiting, and per-tenant billing via Stripe API. Deployed with Kubernetes (EKS) using Helm charts, ArgoCD for GitOps, and Datadog for observability.",
+    img: "/b5.svg",
+    iconLists: ["/python.svg", "/re.svg"],
+    techStack: "Python · FastAPI · LangChain · OpenAI · Llama 2 · Pinecone · PostgreSQL · Celery · Redis · Kubernetes · AWS EKS · ArgoCD · Stripe · Datadog",
+  },
+  {
+    id: 8,
+    title: "🏢 Real-Time Fraud Detection & Risk Intelligence Engine",
+    des: "Distributed, real-time fraud detection system processing 500K+ transactions/day using ML models, Apache Kafka event streaming, and a dynamic rule engine — deployed for a fintech enterprise handling $2B+ in annual transactions.",
+    detail: "Architected Kafka-based event streaming pipeline with sub-50ms latency. Built XGBoost & PyTorch neural network ensemble models achieving 99.3% precision on fraud detection. Designed a dynamic rule engine with Redis-based feature store for real-time feature serving. Integrated Apache Flink for stateful stream processing. Built Grafana + Prometheus dashboards for real-time fraud signal monitoring. Ensured PCI-DSS compliance with end-to-end encryption and secure secret management via AWS Secrets Manager.",
+    img: "/b5.svg",
+    iconLists: ["/python.svg"],
+    techStack: "Python · Apache Kafka · Apache Flink · XGBoost · PyTorch · Redis · PostgreSQL · FastAPI · AWS · Grafana · Kubernetes",
+  },
+  {
+    id: 9,
+    title: "Autonomous Research & Summarization Agent",
+    des: "LangGraph-powered autonomous AI agent that independently researches topics using web search, synthesizes findings from multiple sources, and generates structured research reports with citations — in under 60 seconds.",
+    detail: "Built multi-step agent graph using LangGraph with autonomous tool-use (Tavily Search, Wikipedia, ArXiv APIs). Implemented memory persistence with LangChain + Chroma vector store for context-aware follow-up. Added streaming responses via Server-Sent Events (SSE). Deployed as a FastAPI microservice with a Next.js frontend for real-time report generation.",
+    img: "/b5.svg",
+    iconLists: ["/python.svg", "/re.svg"],
+    techStack: "Python · LangGraph · LangChain · OpenAI GPT-4o · Chroma · FastAPI · Tavily · Next.js · Docker",
+  },
 ];
 
 export const testimonials = [
@@ -239,27 +266,69 @@ export const socialMedia = [
 export const approach = [
   {
     order: 'Phase 1',
-    title: "Problem Analysis & Architecture Design",
-    des: "We start by deeply understanding your data landscape, business objectives, and AI requirements. I map out the ideal architecture — from data ingestion to model deployment — ensuring every component aligns with your goals.",
+    title: "Discovery & Architecture Blueprint",
+    des: "We start by deeply understanding your data landscape, business objectives, and AI requirements. I audit existing systems, define success metrics, and map out the ideal end-to-end architecture — from data ingestion to model deployment — ensuring every component is purposeful and aligned with your strategic goals.",
+    icon: "🔍",
+    highlights: ["Requirements gathering & stakeholder alignment", "System audit & feasibility analysis", "Architecture design & tech stack selection", "Risk identification & mitigation planning"],
+    color: "from-violet-500 to-purple-600",
+    bgLight: "bg-violet-50",
+    borderColor: "border-violet-200",
   },
   {
     order: 'Phase 2',
-    title: "Pipelines, Models & Integration",
-    des: "With the blueprint in place, I build robust ETL pipelines, fine-tune or integrate LLMs, and develop scalable backend APIs. You'll receive regular progress updates as the AI system comes together.",
-    otherProp: {
-      colors: [
-        [255, 166, 158],
-        [221, 255, 247],
-      ],
-      dotSize: 2
-    }
+    title: "Data Engineering & Pipeline Design",
+    des: "Clean, reliable data is the foundation of every AI system. I design and build robust ETL/ELT pipelines using Apache Spark and Medallion Architecture, establish data quality checks, implement feature stores, and ensure your data flows seamlessly from raw sources to model-ready formats.",
+    icon: "⚙️",
+    highlights: ["ETL/ELT pipeline development with Apache Spark", "Medallion Architecture (Bronze → Silver → Gold)", "Data quality validation & anomaly detection", "Feature engineering & vector embedding pipelines"],
+    color: "from-blue-500 to-cyan-500",
+    bgLight: "bg-blue-50",
+    borderColor: "border-blue-200",
+    otherProp: { colors: [[125, 211, 252]], dotSize: 2 }
   },
   {
     order: 'Phase 3',
-    title: "Testing, Deployment & Monitoring",
-    des: "After rigorous testing, the solution is containerized with Docker and deployed on AWS or Hugging Face. I ensure it's performant, secure, and monitored — and I remain available post-launch for support.",
-    otherProp: { colors: [[125, 211, 252]], }
-  }
+    title: "AI & Model Development",
+    des: "With clean data flowing, I build, fine-tune, and evaluate the AI models. Whether it's RAG pipelines, LLM orchestration with LangChain, or custom PyTorch models — I iterate rapidly through experiments, track results with MLflow, and select the best-performing approach for your specific problem.",
+    icon: "🧠",
+    highlights: ["LLM fine-tuning (LoRA/QLoRA) & RAG pipeline development", "Model evaluation, benchmarking & A/B testing", "Prompt engineering & LangGraph agent design", "MLflow/W&B experiment tracking & model registry"],
+    color: "from-emerald-500 to-teal-500",
+    bgLight: "bg-emerald-50",
+    borderColor: "border-emerald-200",
+    otherProp: { colors: [[167, 243, 208]], dotSize: 2 }
+  },
+  {
+    order: 'Phase 4',
+    title: "Backend Integration & API Development",
+    des: "Once models are validated, I build the production-grade backend that brings everything together. Using FastAPI, I create high-performance REST & streaming APIs, integrate with existing systems (Liferay, Salesforce, internal databases), and implement robust auth, rate limiting, and observability.",
+    icon: "🔗",
+    highlights: ["High-performance FastAPI/Django REST & streaming APIs", "System integration (Kafka event streaming, webhooks)", "OAuth 2.0, RBAC & API security hardening", "OpenAPI documentation & SDK generation"],
+    color: "from-orange-500 to-amber-500",
+    bgLight: "bg-orange-50",
+    borderColor: "border-orange-200",
+    otherProp: { colors: [[255, 166, 158]], dotSize: 2 }
+  },
+  {
+    order: 'Phase 5',
+    title: "Deployment, DevOps & Scaling",
+    des: "I containerize and deploy your AI solution on AWS or GCP using Docker and Kubernetes. CI/CD pipelines automate testing and deployment. I configure autoscaling, set up infrastructure as code with Terraform, and ensure the system is production-hardened — performant, resilient, and cost-efficient under load.",
+    icon: "🚀",
+    highlights: ["Docker & Kubernetes orchestration (AWS EKS / GKE)", "CI/CD pipelines with GitHub Actions & ArgoCD", "Infrastructure as Code with Terraform & Helm", "Load testing, horizontal scaling & cost optimization"],
+    color: "from-pink-500 to-rose-500",
+    bgLight: "bg-pink-50",
+    borderColor: "border-pink-200",
+    otherProp: { colors: [[221, 255, 247]], dotSize: 3 }
+  },
+  {
+    order: 'Phase 6',
+    title: "Monitoring, Iteration & Long-Term Support",
+    des: "Deployment is not the finish line. I set up Grafana/Datadog dashboards for real-time monitoring, configure alerting for model drift and data quality degradation, and maintain a continuous improvement loop. I remain available post-launch for support, new feature development, and performance tuning.",
+    icon: "📊",
+    highlights: ["Grafana + Prometheus / Datadog observability stack", "Model drift detection & automated retraining triggers", "Performance tuning, cost monitoring & SLA enforcement", "Regular review cycles & iterative feature development"],
+    color: "from-sky-500 to-indigo-500",
+    bgLight: "bg-sky-50",
+    borderColor: "border-sky-200",
+    otherProp: { colors: [[125, 211, 252]], dotSize: 2 }
+  },
 ];
 
 
@@ -279,12 +348,12 @@ export const skills = [
   // Backend & Frameworks
   { Icon: SiFastapi, name: 'FastAPI', prog: 90, category: 'Backend', color: '#009688' },
   { Icon: SiDjango, name: 'Django / DRF', prog: 92, category: 'Backend', color: '#44b78b' },
-  { Icon: SiFlask, name: 'Flask', prog: 88, category: 'Backend', color: '#ffffff' },
+  { Icon: SiFlask, name: 'Flask', prog: 88, category: 'Backend', color: '#000000' },
 
   // Data Engineering
   { Icon: SiApachespark, name: 'Apache Spark', prog: 85, category: 'Data Engineering', color: '#e25a1c' },
   { Icon: SiApachehadoop, name: 'Hadoop', prog: 78, category: 'Data Engineering', color: '#fae234' },
-  { Icon: SiApachekafka, name: 'Kafka', prog: 80, category: 'Data Engineering', color: '#ffffff' },
+  { Icon: SiApachekafka, name: 'Kafka', prog: 80, category: 'Data Engineering', color: '#231f20' },
   { Icon: SiElasticsearch, name: 'Elasticsearch', prog: 82, category: 'Data Engineering', color: '#fed10a' },
   { Icon: SiPostgresql, name: 'PostgreSQL', prog: 88, category: 'Data Engineering', color: '#336791' },
   { Icon: SiMongodb, name: 'MongoDB', prog: 80, category: 'Data Engineering', color: '#4db33d' },

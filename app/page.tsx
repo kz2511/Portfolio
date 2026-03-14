@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <main
         role="main"
-        className="relative flex-center flex-col mx-auto sm:px-10 px-5 bg-black-100"
+        className="relative flex-center flex-col mx-auto sm:px-10 px-5 bg-background"
       >
         <div className="w-full max-w-7xl">
           <FloatingNav navItems={navItems} />

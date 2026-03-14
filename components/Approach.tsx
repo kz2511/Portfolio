@@ -1,119 +1,110 @@
-"use client"
-import React from 'react'
-
-import { AnimatePresence, motion } from "motion/react";
-import { CanvasRevealEffect } from "@/components/ui/CanvasReveal";
-import MagicButton from './ui/MagicButton';
-import { approach } from '@/data';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import { approach } from "@/data";
 
 export default function Approach() {
-    return (
-        <section id='approach' className='py-20 w-full z-10 relative'>
-            <h1 className='heading'>
-                My {" "} <span className="text-purple">Approach</span>
-            </h1>
-        
-            <div className="my-20 flex-col lg:flex-row flex-center w-full gap-4 ">
-                {approach.map(({ title, des, order, otherProp },i)=>(
-                    <Card key={i}
-                        des={des}
-                        title={title} 
-                        icon={<AceternityIcon order={order} />}
-                    >
-                        <CanvasRevealEffect
-                            animationSpeed={3}
-                            containerClassName={` ${i == 0 ? 'bg-emerald-900' : i == 1 ? 'bg-pink-900' : 'bg-sky-600'} rounded-3xl overflow-hidden`}
-                            {...otherProp}
-                            
-                        />
-                    </Card>
+  return (
+    <section id="approach" className="py-20 w-full z-10 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-violet-100/60 rounded-full blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-sky-100/60 rounded-full blur-3xl" />
+      </div>
 
-                ))}
-                
-            </div>
-        </section>
-       
-    );
-}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h1 className="heading text-foreground">
+          My{" "}
+          <span className="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
+            Approach
+          </span>
+        </h1>
+        <p className="text-center text-muted-foreground mt-3 text-base md:text-lg max-w-2xl mx-auto">
+          A structured, six-phase framework for delivering reliable, enterprise-grade AI solutions —
+          from first conversation to live production.
+        </p>
+      </motion.div>
 
-const Card = ({
-    title,
-    icon,
-    des,
-    children,
-}: {
-    title: string;
-    des:string;
-    icon: React.ReactNode;
-    children?: React.ReactNode;
-}) => {
-    const [hovered, setHovered] = React.useState(false);
-    return (
-        <div
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]  max-w-sm w-full mx-auto p-4 relative h-[25rem] lg:h-[35rem] rounded-3xl bg-black-100"
-        >
-            <Icon className="absolute h-10 w-10 -top-[13.5px] -left-[13.5px] dark:text-white text-black opacity-30" />
-            <Icon className="absolute h-10 w-10 -bottom-[13.5px] -left-[13.5px] dark:text-white text-black opacity-30" />
-            <Icon className="absolute h-10 w-10 -top-[13.5px] -right-[13.5px] dark:text-white text-black opacity-30" />
-            <Icon className="absolute h-10 w-10 -bottom-[13.5px] -right-[13.5px] dark:text-white text-black opacity-30" />
+      {/* Timeline */}
+      <div className="relative mt-20 max-w-5xl mx-auto px-4">
+        {/* Central Line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-violet-300 via-sky-300 to-indigo-300 hidden lg:block" />
 
-            <AnimatePresence>
-                {hovered && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="h-full w-full absolute inset-0"
-                    >
-                        {children}
-                    </motion.div>
-                )}
-            </AnimatePresence>
+        <div className="flex flex-col gap-12">
+          {approach.map((phase, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: isEven ? -60 : 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className={`relative flex items-center gap-8 ${isEven ? "lg:flex-row" : "lg:flex-row-reverse"} flex-col`}
+              >
+                {/* Card */}
+                <div className="w-full lg:w-[calc(50%-2.5rem)]">
+                  <motion.div
+                    whileHover={{ y: -4, scale: 1.01 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className={`relative rounded-2xl bg-white border ${phase.borderColor || "border-gray-200"} shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group`}
+                  >
+                    {/* Top gradient accent */}
+                    <div className={`h-1.5 w-full bg-gradient-to-r ${phase.color}`} />
 
-            <div className="relative px-10 z-20 flex-center flex-col h-full text-center">
-                <div className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full absolute mx-auto flex items-center justify-center">
-                    {icon}
+                    <div className="p-6 md:p-8">
+                      {/* Phase tag + icon */}
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className={`text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-gradient-to-r ${phase.color} text-white`}>
+                          {phase.order}
+                        </span>
+                        <span className="text-2xl">{phase.icon}</span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
+                        {phase.title}
+                      </h3>
+
+                      {/* Description */}
+                      <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-5">
+                        {phase.des}
+                      </p>
+
+                      {/* Highlight bullets */}
+                      {phase.highlights && (
+                        <ul className="space-y-2">
+                          {phase.highlights.map((h: string, j: number) => (
+                            <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                              <span className={`mt-1 w-2 h-2 rounded-full bg-gradient-to-br ${phase.color} flex-shrink-0`} />
+                              {h}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </motion.div>
                 </div>
-                <h2 className="dark:text-white text-3xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-                    {title}
-                </h2>
-                <p
-                    className="text-sm opacity-0 group-hover/canvas-card:opacity-100
-                    relative z-10 mt-4 group-hover/canvas-card:text-white text-center
-                    group-hover/canvas-card:-translate-y-2 transition duration-200"
-                    style={{ color: "#E4ECFF" }}
-                >
-                    {des}
-                </p>
-            </div>
+
+                {/* Center Badge (desktop only) */}
+                <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-12 h-12 rounded-full shadow-lg items-center justify-center z-10 bg-white border-2 border-primary/30">
+                  <span className="text-lg font-bold bg-gradient-to-br from-violet-600 to-indigo-500 bg-clip-text text-transparent">
+                    {i + 1}
+                  </span>
+                </div>
+
+                {/* Spacer for opposite side */}
+                <div className="hidden lg:block w-[calc(50%-2.5rem)]" />
+              </motion.div>
+            );
+          })}
         </div>
-    );
-};
-
-const AceternityIcon = ({order}:any) => {
-    return (
-        <button className="pointer-events-none relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-purple backdrop-blur-3xl font-bold text-2xl">
-                {order}
-            </span>
-        </button>
-    );
-};
-
-export const Icon = ({ className, ...rest }: any) => {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className={className}
-            {...rest}
-        >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
-        </svg>
-    );
-};
+      </div>
+    </section>
+  );
+}

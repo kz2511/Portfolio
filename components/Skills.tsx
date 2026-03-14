@@ -16,67 +16,52 @@ const Skills = () => {
         My {" "} <span className="text-purple">Skills</span>
       </h1>
 
-      <div className="relative">
-        <LampContainer >
-          <></>
-        </LampContainer>
-          <motion.div
-            initial={{ opacity: 0.5, y: -100 }}
-            whileInView={{ opacity: 1, y: -150 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            onViewportEnter={() => setanim(true)}
-            viewport={{ once: true }}
-            className="w-full max-h-80d"
-          >
-
-            <div className="flex-center  w-full flex-col mt-16">
-
-              <div className=' flex-center gap-6 md:gap-8 flex-wrap'>
-                {skills.map(({ Icon, name, prog, color }) => (
-                  <CustomTooltip key={name} title={name} arrowSx={{ color: color }}>
-                    <motion.span
-                      animate={anim && {
-                        boxShadow: [
-                          `0 0 0px ${color}00`,    // off
-                          `0 0 30px ${color}40`,   // dim
-                          `0 0 0px ${color}00`,    // off again
-                          `0 0 0px ${color}00`,    // off
-                          `0 0 30px ${color}40`,   // dim
-                          `0 0 0px ${color}00`,    // off again
-                          `0 0 0px ${color}00`,    // off
-                          `0 0 30px ${color}40`,   // dim
-                          `0 0 0px ${color}00`,    // off again
-                          `0 0 50px ${color}80`,   // flicker
-                          `0 0 20px ${color}40`,   // dim
-                          `0 0 40px ${color}ba`,   // final glow
-                        ],
-                      }}
-                      transition={anim ? {
-                        delay:0.5,
-                        duration: 2,
-                        times: [0, 0.1, 0.2, 0.35, 0.45, 0.55, 0.65, 0.75, 0.85, 0.9, 0.95, 1],
-                        ease: "easeInOut",
-                      
-                      }:undefined}
-                      viewport={{ once: true }}
-                      className="text-3xl md:text-5xl nshadow-[0_0_150px_#a75cef]  rounded-full text-black-100 p-3 md:p-4 backdrop-blur-xl hover:scale-105 hovesFr:transition hovers:duration-500 skill"
-                      style={{
-                        background: color,
-                        // boxShadow: `0 0 60px  ${color}80`, // 80 = 50% opacity in hex #a855f7
-                      }}
-                    >
-                      <Icon />
-                    </motion.span>
-                  </CustomTooltip>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
+      <div className="relative w-full mt-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+          onViewportEnter={() => setanim(true)}
+          viewport={{ once: true, margin: "-100px" }}
+          className="w-full flex-center flex-col"
+        >
+          <div className="flex-center w-full max-w-5xl flex-wrap gap-8 md:gap-10">
+            {skills.map(({ Icon, name, prog, color }, idx) => (
+              <CustomTooltip key={name} title={name} arrowSx={{ color: color }}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ scale: 1.25, zIndex: 50, y: -10 }}
+                  transition={{
+                    delay: idx * 0.05,
+                    duration: 0.4,
+                    type: "spring",
+                    stiffness: 260,
+                    damping: 20
+                  }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center gap-4 cursor-pointer relative group"
+                >
+                  <motion.span
+                    className="text-4xl md:text-5xl rounded-full text-white p-4 md:p-5 flex-center transition-all duration-300 shadow-lg group-hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+                    style={{
+                      background: color,
+                      boxShadow: anim ? `0 10px 30px -10px ${color}` : "none",
+                    }}
+                  >
+                    <Icon />
+                  </motion.span>
+                  <span className="text-sm font-bold text-foreground bg-white/80 px-4 py-1.5 rounded-full border border-border shadow-sm backdrop-blur-sm group-hover:border-primary/30 group-hover:bg-white transition-colors">
+                    {name}
+                  </span>
+                </motion.div>
+              </CustomTooltip>
+            ))}
+          </div>
+        </motion.div>
       </div>
       {/* <div className='flex-center  mt-16'>
             <div className='flex flex-wrap gap-6 w-[70%]'>

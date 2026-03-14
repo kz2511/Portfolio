@@ -19,12 +19,12 @@ const Footer = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center relative z-1">
-        <h1 className="heading lg:max-w-[45vw]">
+      <div className="flex flex-col items-center relative z-10 w-full mb-12">
+        <h1 className="heading lg:max-w-[45vw] text-foreground">
           Ready to build your next{" "}
-          <span className="text-purple">AI-powered</span> solution?
+          <span className="text-primary">AI-powered</span> solution?
         </h1>
-        <p className="text-white-200 text-sm md:text-base md:mt-8 my-4">
+        <p className="text-muted-foreground text-sm md:text-base md:mt-8 my-4 font-medium">
           Reach out to me today and let&apos;s discuss how AI and data
           engineering can transform your product.
         </p>
@@ -38,23 +38,23 @@ const Footer = () => {
         </Link>
       </div>
 
-      <div className="w-full flex items-center justify-between mt-12 max-sm:flex-col md:gap-3 gap-6 relative z-1">
-        <p className="md:text-sm text-xs md:font-normal font-light text-white-200">
+      <div className="w-full flex items-center justify-between mt-12 max-sm:flex-col md:gap-3 gap-6 relative z-10">
+        <p className="md:text-sm text-xs font-medium text-muted-foreground">
           Designed &amp; Developed by{" "}
-          <span className="text-purple font-semibold">Kunal Zaveri</span> ·{" "}
+          <span className="text-primary font-bold">Kunal Zaveri</span> ·{" "}
           {new Date().getFullYear()}
         </p>
 
         <ul className="flex gap-2">
           {socialMedia.map(({ id, img, link }) => (
             <Link href={link} key={id} target="_blank">
-              <div className="cursor-pointer w-10 h-10 rounded-lg border border-[rgb(26_30_57)] flex-center shadow-[inset_0px_0px_8px_0.82px_rgba(255,255,255,0.10)]">
+              <div className="cursor-pointer w-10 h-10 rounded-lg border border-border bg-white flex-center shadow-sm hover:shadow-md transition-shadow">
                 <Image
                   src={img}
                   alt="icons"
                   width={20}
                   height={20}
-                  style={{ width: "auto" }}
+                  style={{ width: "auto", filter: "invert(1)" }}
                 />
               </div>
             </Link>

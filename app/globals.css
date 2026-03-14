@@ -10,44 +10,44 @@
   ::-moz-selection {
     /* Code for Firefox */
     color: rgb(255, 255, 255);
-    background: #cbacf9;
+    background: #4f46e5; /* Indigo 600 */
   }
 
   ::selection {
     color: rgb(255, 255, 255);
-    background: #6d4d9c;
+    background: #4f46e5;
   }
 
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --background: 210 40% 98%; /* Very light blue/gray */
+    --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 262.1 83.3% 57.8%; /* Vibrant Purple */
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 10% 3.9%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 
   .dark {
@@ -102,11 +102,24 @@
 
 @layer utilities {
   .heading {
-    @apply font-bold text-3xl md:text-4xl text-center;
+    @apply font-bold text-3xl md:text-5xl text-center;
   }
 
   .black-gradient {
     background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+  }
+
+  /* Vibrant Light Gradients */
+  .white-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(243,244,246,0.5) 100%);
+  }
+
+  .vibrant-gradient {
+    background: linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%);
+  }
+  
+  .blue-purple-gradient {
+     background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
   }
 
   .bg-gradient-130 {
@@ -115,6 +128,9 @@
 
   .bg-gradient-90 {
     background: linear-gradient(90deg, #04071d 0%, #0c0e23 100%);
+  }
+  .text-gradient {
+      @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-500 to-purple;
   }
 }
 

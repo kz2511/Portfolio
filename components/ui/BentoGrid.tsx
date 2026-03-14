@@ -10,10 +10,10 @@ const Lottie = dynamic(() => import("lottie-react"), {
 
 // CSS-only globe fallback (avoids WebGL requirement)
 const GlobeFallback = () => (
-  <div className="w-full h-full flex items-center justify-center">
-    <div className="relative w-36 h-36 md:w-44 md:h-44">
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 opacity-80 animate-pulse" />
-      <div className="absolute inset-2 rounded-full bg-gradient-to-tl from-purple-800 via-blue-700 to-cyan-900 opacity-60" />
+  <div className="w-full h-full flex items-center justify-center absolute inset-0 -z-10 opacity-60">
+    <div className="relative w-36 h-36 md:w-56 md:h-56">
+      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-100 via-blue-100 to-indigo-100 opacity-80 animate-pulse" />
+      <div className="absolute inset-2 rounded-full bg-gradient-to-tl from-purple-50 via-blue-50 to-cyan-50 opacity-60" />
       <div
         className="absolute inset-0 rounded-full"
         style={{
@@ -22,8 +22,8 @@ const GlobeFallback = () => (
           animation: "spin 8s linear infinite",
         }}
       />
-      <div className="absolute inset-4 rounded-full border border-purple-500/20" />
-      <div className="absolute inset-8 rounded-full border border-purple-400/10" />
+      <div className="absolute inset-4 rounded-full border border-primary/20" />
+      <div className="absolute inset-8 rounded-full border border-primary/10" />
     </div>
   </div>
 );
@@ -91,17 +91,12 @@ export const BentoGridItem = ({
   return (
     <div
       className={cn(
-        `row-span-1 rounded-3xl overflow-hidden relative border group/bento 
-        hover:shadow-xl transition duration-200 shadow-input 
-        dark:shadow-none dark:border-[rgb(26_30_57)]
+        `row-span-1 rounded-3xl overflow-hidden relative border border-border group/bento 
+        hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 shadow-md 
+        bg-white
         justify-between flex flex-col space-y-4`,
         className,
       )}
-      style={{
-        background: "rgb(4 7 26)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
-      }}
     >
       <div className={`${id === 6 && "flex justify-center"} h-full`}>
         <div className="w-full h-full absolute">
@@ -111,6 +106,9 @@ export const BentoGridItem = ({
               alt={img}
               className={cn(imgClassName, "object-cover object-center ")}
             />
+          )}
+          {id === 1 && (
+            <div className="absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none" />
           )}
         </div>
         <div
@@ -138,27 +136,30 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            "group-hover/bento:translate-x-2 transition duration-200 flex flex-col md:h-full min-h-40 p-5 lg:p-10 h-full",
+            "group-hover/bento:translate-x-2 transition duration-200 flex flex-col md:h-full min-h-40 p-5 lg:p-10 h-full z-10 relative",
           )}
         >
-          <div className="font-sans font-light text-[#BEC1DD] text-sm lg:text-base z-10 md:text-xs leading-relaxed">
+          <div className={cn("font-sans font-medium text-sm md:text-sm lg:text-base z-10 leading-relaxed", id === 1 ? "text-slate-800 font-semibold max-w-lg mb-2" : "text-muted-foreground")}>
             {description}
           </div>
           <div
             tabIndex={1}
             role="dialog"
-            className={`font-sans text-lg lg:text-3xl max-w-96 font-bold z-10 text-white`}
+            className={cn(
+              "font-sans text-lg lg:text-3xl max-w-96 font-bold z-10",
+              id === 6 ? "text-white text-center md:text-left" : "text-foreground"
+            )}
           >
             {title}
           </div>
           {id == 3 && (
             <div className="flex gap-2 lg:gap-3 w-fit absolute -right-3 lg:-right-2">
               <div className="flex flex-col gap-2 lg:gap-3 ">
-                <span className="py-4 px-3 rounded-md text-center bg-[#10132E]"></span>
+                <span className="py-4 px-3 rounded-md text-center bg-blue-50/50"></span>
                 {leftLists.map((item, i) => (
                   <span
                     key={i}
-                    className="text-xs px-5 py-4 lg:py-6 lg:p-8 lg:text-sm opacity-50 lg:opacity-100  text-center rounded-md bg-[#10132E]"
+                    className="text-xs px-5 py-4 lg:py-6 lg:p-8 lg:text-sm font-medium text-primary text-center rounded-md bg-blue-50/80 border border-blue-100"
                   >
                     {item}
                   </span>
@@ -168,12 +169,12 @@ export const BentoGridItem = ({
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
-                    className="text-xs px-5 py-4 lg:py-6 lg:p-8 lg:text-sm opacity-50 lg:opacity-100  text-center rounded-md bg-[#10132E]"
+                    className="text-xs px-5 py-4 lg:py-6 lg:p-8 lg:text-sm font-medium text-primary text-center rounded-md bg-blue-50/80 border border-blue-100"
                   >
                     {item}
                   </span>
                 ))}
-                <span className="py-4 px-3 rounded-md text-center bg-[#10132E]"></span>
+                <span className="py-4 px-3 rounded-md text-center bg-blue-50/50"></span>
               </div>
             </div>
           )}
@@ -186,7 +187,6 @@ export const BentoGridItem = ({
                   autoplay={copied}
                   style={{ height: 200, width: 400 }}
                 />
-                {/* <Image src={'/confetti.gif'} alt={'confetti'} height={200} width={400} /> */}
               </div>
 
               <MagicButton
@@ -194,7 +194,7 @@ export const BentoGridItem = ({
                 icon={<IoCopyOutline />}
                 position="left"
                 handelClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
+                otherClasses="!bg-white !text-foreground border border-border hover:bg-gray-50"
               />
             </div>
           )}

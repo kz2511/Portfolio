@@ -106,12 +106,63 @@ const projectsData = [
       "Python · Scrapy · Selenium · BeautifulSoup · Flask · PostgreSQL · ElasticSearch · Django REST Framework",
     color: "#F59E0B",
   },
+  {
+    id: 7,
+    title: "Enterprise Multi-Tenant AI SaaS Platform",
+    category: "Enterprise AI · SaaS · LLMOps",
+    des: "Production-grade, multi-tenant SaaS platform serving 50+ enterprise clients — enabling each tenant to fine-tune, deploy, and monitor their own private LLM-powered assistants with strict data isolation, governance, and SOC 2 compliance.",
+    bullets: [
+      "Architected multi-tenant database with Row-Level Security in PostgreSQL and per-tenant vector namespaces in Pinecone for strict data isolation",
+      "Built fine-tuning orchestration pipelines for OpenAI & Llama 2 using LoRA/QLoRA adapters with automated evaluation benchmarks",
+      "Designed asynchronous task queuing with Celery + Redis for non-blocking LLM inference at scale",
+      "Enforced RBAC, SOC 2-compliant audit logging, rate limiting, and per-tenant usage billing via Stripe API integration",
+      "Deployed on AWS EKS with Helm charts, ArgoCD for GitOps-based deployments and Datadog for full observability",
+      "Built tenant onboarding portal with Next.js frontend, real-time usage dashboards, and model performance analytics",
+    ],
+    techStack:
+      "Python · FastAPI · LangChain · OpenAI · Llama 2 · LoRA · Pinecone · PostgreSQL · Celery · Redis · Kubernetes · AWS EKS · ArgoCD · Stripe · Datadog · Next.js",
+    color: "#6D28D9",
+  },
+  {
+    id: 8,
+    title: "Real-Time Fraud Detection & Risk Intelligence Engine",
+    category: "FinTech · ML · Streaming",
+    des: "Distributed, real-time fraud detection system processing 500K+ transactions/day using ML ensemble models, Apache Kafka event streaming, and a dynamic rule engine — deployed for a fintech enterprise handling $2B+ in annual transactions.",
+    bullets: [
+      "Architected Kafka-based event streaming pipeline with sub-50ms end-to-end latency for real-time transaction scoring",
+      "Built XGBoost & PyTorch neural network ensemble achieving 99.3% precision and 98.7% recall on fraud detection",
+      "Designed Redis-based feature store for real-time feature serving with <5ms lookup latency at scale",
+      "Integrated Apache Flink for stateful stream processing — session windowing, pattern matching, and anomaly detection",
+      "Built Grafana + Prometheus dashboards for real-time fraud signal monitoring and model drift detection",
+      "Ensured PCI-DSS compliance with end-to-end encryption, secure secret management via AWS Secrets Manager, and full audit trail",
+    ],
+    techStack:
+      "Python · Apache Kafka · Apache Flink · XGBoost · PyTorch · Redis · PostgreSQL · FastAPI · AWS · Grafana · Prometheus · Kubernetes · Terraform",
+    color: "#DC2626",
+  },
+  {
+    id: 9,
+    title: "Autonomous Research & Summarization Agent",
+    category: "LangGraph · Agentic AI · RAG",
+    des: "LangGraph-powered autonomous AI agent that independently researches topics via multi-tool web search, synthesizes findings from diverse sources, and generates structured research reports with citations — all in under 60 seconds.",
+    bullets: [
+      "Built multi-step agentic graph using LangGraph with autonomous tool-use: Tavily Search, Wikipedia, ArXiv, and custom scrapers",
+      "Implemented persistent conversation memory with LangChain + Chroma vector store for context-aware multi-turn research",
+      "Added real-time streaming report generation via Server-Sent Events (SSE) for progressive UI rendering",
+      "Built citation extraction and source validation pipeline to ensure factual accuracy of generated reports",
+      "Deployed as a FastAPI microservice with a Next.js frontend for real-time report generation and export to PDF/Markdown",
+      "Implemented rate limiting, user authentication, and usage tracking for API monetization readiness",
+    ],
+    techStack:
+      "Python · LangGraph · LangChain · OpenAI GPT-4o · Chroma · FastAPI · Tavily · ArXiv API · Next.js · Docker · Vercel",
+    color: "#059669",
+  },
 ];
 
 const Projects = () => (
   <section className="py-16" id="projects">
-    <h1 className="heading">
-      A selection of <span className="text-purple">recent projects</span>
+    <h1 className="heading text-foreground">
+      A selection of <span className="text-primary">recent projects</span>
     </h1>
 
     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-2 md:px-4">
@@ -143,10 +194,9 @@ const ProjectCard = ({
   return (
     <motion.div
       layout
-      className="relative rounded-2xl border border-[rgba(255,255,255,0.08)] bg-[rgb(4,7,26)] overflow-hidden flex flex-col"
-      style={{ boxShadow: `0 0 0 1px rgba(255,255,255,0.04)` }}
+      className="relative rounded-2xl border border-border bg-white overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 shadow-sm"
       whileHover={{
-        boxShadow: `0 0 30px 2px ${color}22, 0 0 0 1px ${color}44`,
+        boxShadow: `0 10px 30px -5px ${color}33, 0 0 0 1px ${color}55`,
       }}
       transition={{ duration: 0.3 }}
     >
@@ -167,12 +217,12 @@ const ProjectCard = ({
         </span>
 
         {/* Title — always visible, prominent */}
-        <h2 className="font-bold text-sm md:text-base text-white leading-snug mb-2 line-clamp-2">
+        <h2 className="font-bold text-sm md:text-lg text-foreground leading-snug mb-2 line-clamp-2">
           {title}
         </h2>
 
         {/* Summary */}
-        <p className="text-[13px] text-[#BEC1DD] leading-relaxed line-clamp-3 mb-4">
+        <p className="text-[14px] text-muted-foreground leading-relaxed line-clamp-3 mb-4 font-medium">
           {des}
         </p>
 
@@ -207,14 +257,14 @@ const ProjectCard = ({
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="overflow-hidden"
             >
-              <div className="mt-4 border-t border-[rgba(255,255,255,0.07)] pt-4">
+              <div className="mt-4 border-t border-border pt-4">
                 <ul className="space-y-2 mb-4">
                   {bullets.map((b, i) => (
                     <li
                       key={i}
-                      className="flex gap-2 text-[12px] text-[#BEC1DD] leading-relaxed"
+                      className="flex gap-2 text-[13px] text-muted-foreground leading-relaxed font-medium"
                     >
-                      <span style={{ color, flexShrink: 0, marginTop: "3px" }}>
+                      <span style={{ color, flexShrink: 0, marginTop: "2px" }}>
                         ▸
                       </span>
                       <span>{b}</span>
@@ -235,7 +285,7 @@ const ProjectCard = ({
                   >
                     Tech Stack
                   </p>
-                  <p className="text-[11px] text-[#BEC1DD] leading-relaxed">
+                  <p className="text-[12px] text-muted-foreground font-medium leading-relaxed">
                     {techStack}
                   </p>
                 </div>

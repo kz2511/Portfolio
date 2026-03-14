@@ -5,14 +5,14 @@ import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kunalzaveri.dev"),
-  title: "Kunal's Portfolio — Sr. AI & Data Engineer",
+  title: "Kunal's Portfolio — Product Engineer",
   description:
-    "Explore Kunal Zaveri's portfolio — Sr. AI Developer with 5+ years building LLM applications, RAG pipelines, ETL systems, and AI-powered backends across Python, FastAPI, Apache Spark, and AWS.",
+    "Explore Kunal Zaveri's portfolio.",
 
   openGraph: {
-    title: "Kunal's Portfolio — Sr. AI & Data Engineer",
+    title: "Kunal's Portfolio — Product Engineer",
     description:
-      "Explore Kunal Zaveri's portfolio — Sr. AI Developer specializing in LLMs, Generative AI, RAG pipelines, and scalable data engineering.",
+      "Explore Kunal Zaveri's portfolio.",
     url: "https://kunalzaveri.dev",
     siteName: "Kunal Zaveri's Portfolio",
     images: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kunal's Portfolio — Sr. AI & Data Engineer",
+    title: "Kunal's Portfolio — Product Engineer",
     description:
-      "Explore Kunal Zaveri's portfolio — Sr. AI Developer specializing in LLMs, Generative AI, RAG pipelines, and scalable data engineering.",
+      "Explore Kunal Zaveri's portfolio.",
     images: ["/portfolio.png"],
   },
 };
@@ -44,19 +44,6 @@ export default function RootLayout({
       <Head>
         <link rel="canonical" href="https://portfolio25-one.vercel.app" />
         <meta name="robots" content="index, follow" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Yahia's Portfolio",
-              url: "https://portfolio25-one.vercel.app",
-              description:
-                "Step into Yahia's world of digital craftsmanship. Explore a portfolio that blends cutting-edge web development, interactive 3D designs, and seamless user experiences to leave a lasting impression.",
-            }),
-          }}
-        />
       </Head>
       <body
         suppressHydrationWarning
@@ -64,7 +51,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
