@@ -1,18 +1,47 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kunalzaveri.dev"),
-  title: "Kunal's Portfolio — Product Engineer",
+  title: {
+    default: "Kunal Zaveri — AI & Data Engineer Portfolio",
+    template: "%s | Kunal Zaveri"
+  },
   description:
-    "Explore Kunal Zaveri's portfolio.",
-
+    "Portfolio of Kunal Zaveri, an experienced Product Engineer specializing in AI, Data Engineering, LLMs, and Modern Web Development. Explore my projects and experience.",
+  keywords: [
+    "Kunal Zaveri",
+    "Product Engineer",
+    "Data Engineer",
+    "AI Engineer",
+    "LLM",
+    "Machine Learning",
+    "Next.js",
+    "React",
+    "Portfolio",
+    "Software Engineer"
+  ],
+  authors: [{ name: "Kunal Zaveri" }],
+  creator: "Kunal Zaveri",
+  alternates: {
+    canonical: "https://kunalzaveri.dev",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: "Kunal's Portfolio — Product Engineer",
+    title: "Kunal Zaveri — AI & Data Engineer Portfolio",
     description:
-      "Explore Kunal Zaveri's portfolio.",
+      "Explore Kunal Zaveri's portfolio. Specializing in AI, Data Engineering, and full-stack development.",
     url: "https://kunalzaveri.dev",
     siteName: "Kunal Zaveri's Portfolio",
     images: [
@@ -28,12 +57,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kunal's Portfolio — Product Engineer",
+    title: "Kunal Zaveri — AI & Data Engineer Portfolio",
     description:
-      "Explore Kunal Zaveri's portfolio.",
+      "Explore Kunal Zaveri's portfolio. Specializing in AI, Data Engineering, and full-stack development.",
     images: ["/portfolio.png"],
   },
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,10 +71,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        <link rel="canonical" href="https://portfolio25-one.vercel.app" />
-        <meta name="robots" content="index, follow" />
-      </Head>
       <body
         suppressHydrationWarning
         className="antialiased"
